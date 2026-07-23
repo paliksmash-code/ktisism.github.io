@@ -130,8 +130,10 @@
         h2 {
             font-size: 1.3rem;
             color: var(--accent-color);
-            margin-top: 40px;
+            margin-top: 50px;
             margin-bottom: 15px;
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 8px;
         }
 
         h3 {
@@ -186,6 +188,35 @@
         .line-content {
             flex-grow: 1;
         }
+
+        /* Depictions Image Gallery Layout */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            background-color: #111;
+            border: 1px solid var(--line-color);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-caption {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 8px;
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
@@ -209,6 +240,7 @@
             <li><a href="#hosism" onclick="toggleMenu()">3. Hosism</a></li>
             <li><a href="#pavelhricism" onclick="toggleMenu()">4. Pavelhricism</a></li>
             <li><a href="#quotation-system" onclick="toggleMenu()">5. Quotation System</a></li>
+            <li><a href="#depictions" onclick="toggleMenu()">6. Depictions</a></li>
         </ul>
     </div>
 
@@ -269,7 +301,7 @@
         </div>
 
         <!-- Seven Truths Section -->
-        <h2>Seven Truths of Onmetoism:</h2>
+        <h2>Seven Truths of Onmetoism</h2>
         <h3>0. Tomē (Potential)</h3>
 
         <div class="text-block">
@@ -323,6 +355,19 @@
                 <span class="line-content">A being is born; its potential allows imagination, its imagination allows intention, its intention allows friction, its friction allows action, its action allows reaction, its reaction allows naught, and naught allows iteration; Nature allows the individual, the individual allows the heart, the heart allows the body, the body allows the throat, the throat allows the mind, the mind allows the will, the will allows decision, and decision allows potential.</span>
             </div>
         </div>
+
+        <!-- 6. Depictions Section -->
+        <h2 id="depictions">6. Depictions</h2>
+        <div class="image-grid">
+            <!-- Example container for future images. Copy and paste this block when adding images: -->
+            <!-- 
+            <div class="image-container">
+                <img src="path-to-your-image.png" alt="Depiction Image">
+                <div class="image-caption">Fig. 01 - Description of the image</div>
+            </div> 
+            -->
+        </div>
+
     </main>
 
     <script>
@@ -333,4 +378,4 @@
         }
     </script>
 </body>
-                    </html>
+    </html>
