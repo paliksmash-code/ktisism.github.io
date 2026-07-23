@@ -118,22 +118,26 @@
             padding: 0 20px 100px 20px;
         }
 
+        /* Primary Page Headers (Main Sections) */
         h1 {
             font-size: 2rem;
             color: var(--accent-color);
             letter-spacing: 1px;
+            margin-top: 60px;
             margin-bottom: 30px;
             border-bottom: 1px solid var(--line-color);
             padding-bottom: 15px;
         }
 
+        main > h1:first-child {
+            margin-top: 0;
+        }
+
         h2 {
             font-size: 1.3rem;
             color: var(--accent-color);
-            margin-top: 50px;
+            margin-top: 40px;
             margin-bottom: 15px;
-            border-bottom: 1px solid var(--line-color);
-            padding-bottom: 8px;
         }
 
         h3 {
@@ -142,18 +146,6 @@
             margin-top: 25px;
             margin-bottom: 15px;
             font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* Tiny 1:1 Symbol for Tomē Header */
-        .tome-icon {
-            width: 18px;
-            height: 18px;
-            object-fit: contain;
-            vertical-align: middle;
-            filter: invert(1); /* Inverts dark image to match white text on dark background */
         }
 
         /* Plain Unnumbered Introduction */
@@ -258,7 +250,8 @@
 
     <!-- Main Content -->
     <main>
-        <h1 id="onmetoism">ONMETOISM</h1>
+        <!-- PAGE 1: ONMETOISM -->
+        <h1 id="onmetoism">1. ONMETOISM</h1>
 
         <!-- Introduction Section (Unnumbered) -->
         <div class="intro-section">
@@ -314,10 +307,7 @@
 
         <!-- Seven Truths Section -->
         <h2>Seven Truths of Onmetoism</h2>
-        <h3>
-            0. Tomē (Potential) 
-            <img src="images/A.Tomē.jpg" alt="Tomē Symbol" class="tome-icon">
-        </h3>
+        <h3>0. Tomē (Potential)</h3>
 
         <div class="text-block">
             <div class="row">
@@ -371,14 +361,15 @@
             </div>
         </div>
 
-        <!-- 6. Depictions Section -->
-        <h2 id="depictions">6. Depictions</h2>
+        <!-- PAGE 6: DEPICTIONS (SEPARATE TOP-LEVEL SECTION) -->
+        <h1 id="depictions">6. DEPICTIONS</h1>
         <div class="image-grid">
             <div class="image-container">
                 <img src="images/A.Tomē.jpg" alt="A. Tomē">
                 <div class="image-caption">0. Tomē (Potential)</div>
             </div>
         </div>
+
     </main>
 
     <script>
