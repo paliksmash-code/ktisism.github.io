@@ -131,7 +131,7 @@
         /* Depictions Image Gallery Layout */
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -139,21 +139,24 @@
         .image-container {
             background-color: #111;
             border: 1px solid var(--line-color);
-            padding: 10px;
+            padding: 12px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .image-container img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
             display: block;
-            margin: 0 auto;
         }
 
         .image-caption {
             font-size: 0.85rem;
-            color: #666;
-            margin-top: 8px;
+            color: var(--text-color);
+            margin-top: 12px;
             font-family: monospace;
         }
     </style>
@@ -187,10 +190,17 @@
     <main>
         <h1>6. DEPICTIONS</h1>
         <div class="image-grid">
+
             <div class="image-container">
                 <img src="images/A.Tomē.jpg" alt="A. Tomē">
                 <div class="image-caption">0. Tomē (Potential)</div>
             </div>
+
+            <div class="image-container">
+                <img src="images/AA.Eikon.png" alt="AA. Eikon">
+                <div class="image-caption">1. Eikōn (Imagination)</div>
+            </div>
+
         </div>
     </main>
 
@@ -202,4 +212,4 @@
         }
     </script>
 </body>
-                                                           </html>
+    </html>
