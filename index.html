@@ -346,6 +346,15 @@
             const drawer = document.getElementById('sideDrawer');
             drawer.classList.toggle('open');
         }
+
+        // Defensive Anti-Copy Safeguards
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && ['c', 'u', 's', 'a', 'p'].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+            }
+        });
     </script>
 </body>
-    </html>
+</html>
