@@ -142,6 +142,18 @@
             margin-top: 25px;
             margin-bottom: 15px;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Tiny 1:1 Symbol for Tomē Header */
+        .tome-icon {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            vertical-align: middle;
+            filter: invert(1); /* Inverts dark image to match white text on dark background */
         }
 
         /* Plain Unnumbered Introduction */
@@ -189,7 +201,7 @@
             flex-grow: 1;
         }
 
-        /* Depictions Image Gallery Layout (Preserved for future use) */
+        /* Depictions Image Gallery Layout */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -302,7 +314,10 @@
 
         <!-- Seven Truths Section -->
         <h2>Seven Truths of Onmetoism</h2>
-        <h3>0. Tomē (Potential)</h3>
+        <h3>
+            0. Tomē (Potential) 
+            <img src="images/A.Tomē.jpg" alt="Tomē Symbol" class="tome-icon">
+        </h3>
 
         <div class="text-block">
             <div class="row">
@@ -355,6 +370,15 @@
                 <span class="line-content">A being is born; its potential allows imagination, its imagination allows intention, its intention allows friction, its friction allows action, its action allows reaction, its reaction allows naught, and naught allows iteration; Nature allows the individual, the individual allows the heart, the heart allows the body, the body allows the throat, the throat allows the mind, the mind allows the will, the will allows decision, and decision allows potential.</span>
             </div>
         </div>
+
+        <!-- 6. Depictions Section -->
+        <h2 id="depictions">6. Depictions</h2>
+        <div class="image-grid">
+            <div class="image-container">
+                <img src="images/A.Tomē.jpg" alt="A. Tomē">
+                <div class="image-caption">0. Tomē (Potential)</div>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -365,4 +389,4 @@
         }
     </script>
 </body>
-            </html>
+    </html>
