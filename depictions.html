@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ktisism - Depictions</title>
+
+    <!-- Anti-Translation Directives -->
+    <meta name="google" content="notranslate">
+
+    <!-- Anti-Caching & Archiving Directives -->
+    <meta name="robots" content="noarchive, noindex, nofollow, nocache">
+    <meta name="googlebot" content="noarchive, noindex, nofollow">
+    <meta name="bingbot" content="noarchive, noindex, nofollow">
+
     <style>
         /* Base Dark Mode Styling */
         :root {
@@ -13,13 +22,18 @@
             --line-color: #222222;
         }
 
-        body {
+        /* Anti-Copy Protection Rules */
+        body, html {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE/Edge */
+            user-select: none;        /* Standard */
         }
 
         /* Top Navigation Bar */
@@ -152,6 +166,7 @@
             height: auto;
             object-fit: contain;
             display: block;
+            pointer-events: none; /* Prevents dragging image assets */
         }
 
         /* 1:1 Default Images */
@@ -176,14 +191,19 @@
             font-family: monospace;
         }
 
+        .notranslate {
+            -webkit-translate: no;
+            translate: no;
+        }
+
         /* Desktop Adjustments for Non-Square Formats */
         @media (min-width: 600px) {
             .portrait-card {
-                grid-row: span 2; /* Allows 9:16 images to scale bigger vertically */
+                grid-row: span 2;
             }
 
             .wide-card {
-                grid-column: span 2; /* Takes up 2 grid slots for 16:9 landscape */
+                grid-column: span 2;
             }
         }
     </style>
@@ -193,7 +213,7 @@
     <!-- Header / Navbar -->
     <header>
         <a href="index.html" class="logo">KTISISM</a>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
             <span></span>
             <span></span>
             <span></span>
@@ -204,7 +224,8 @@
     <div class="side-drawer" id="sideDrawer">
         <h3>Denominations & Sections</h3>
         <ul>
-            <li><a href="index.html">1. Onmetoism</a></li>
+            <li><a href="index.html#tome">0. Tomē</a></li>
+            <li><a href="index.html#onmetoism">1. Onmetoism</a></li>
             <li><a href="index.html#apodictism">2. Apodictism</a></li>
             <li><a href="index.html#hosism">3. Hosism</a></li>
             <li><a href="index.html#pavelhricism">4. Pavelhricism</a></li>
@@ -350,6 +371,15 @@
             const drawer = document.getElementById('sideDrawer');
             drawer.classList.toggle('open');
         }
+
+        // Defensive Anti-Copy Safeguards
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && ['c', 'u', 's', 'a', 'p'].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+            }
+        });
     </script>
 </body>
-</html>
+                </html>
