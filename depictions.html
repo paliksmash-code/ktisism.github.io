@@ -144,13 +144,29 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
         }
 
         .image-container img {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            height: auto;
             object-fit: contain;
             display: block;
+        }
+
+        /* 1:1 Default Images */
+        .square-img {
+            aspect-ratio: 1 / 1;
+        }
+
+        /* 9:16 Tall Portrait Images */
+        .portrait-img {
+            aspect-ratio: 9 / 16;
+        }
+
+        /* 16:9 Wide Landscape Images */
+        .landscape-img {
+            aspect-ratio: 16 / 9;
         }
 
         .image-caption {
@@ -158,6 +174,17 @@
             color: var(--text-color);
             margin-top: 12px;
             font-family: monospace;
+        }
+
+        /* Desktop Adjustments for Non-Square Formats */
+        @media (min-width: 600px) {
+            .portrait-card {
+                grid-row: span 2; /* Allows 9:16 images to scale bigger vertically */
+            }
+
+            .wide-card {
+                grid-column: span 2; /* Takes up 2 grid slots for 16:9 landscape */
+            }
         }
     </style>
 </head>
@@ -193,92 +220,103 @@
 
             <!-- Top Foundations -->
             <div class="image-container">
-                <img src="images/H.Temnoism.png" alt="Temnoism">
+                <img class="square-img" src="images/H.Temnoism.png" alt="Temnoism">
                 <div class="image-caption">Temnoism</div>
             </div>
 
             <div class="image-container">
-                <img src="images/HH.Onmetoism.jpg" alt="Onmetoism">
+                <img class="square-img" src="images/HH.Onmetoism.jpg" alt="Onmetoism">
                 <div class="image-caption">Onmetoism</div>
             </div>
 
             <!-- The Seven Truths (Including Tomē) -->
             <div class="image-container">
-                <img src="images/A.Tomē.jpg" alt="0. Tomē">
+                <img class="square-img" src="images/A.Tomē.jpg" alt="0. Tomē">
                 <div class="image-caption">0. Tomē (Potential)</div>
             </div>
 
             <div class="image-container">
-                <img src="images/AA.Eikon.png" alt="1. Eikōn">
+                <img class="square-img" src="images/AA.Eikon.png" alt="1. Eikōn">
                 <div class="image-caption">1. Eikōn (Imagination)</div>
             </div>
 
             <div class="image-container">
-                <img src="images/B.Misohyle.jpg" alt="2. Theló">
+                <img class="square-img" src="images/B.Misohyle.jpg" alt="2. Theló">
                 <div class="image-caption">2. Theló (Intention)</div>
             </div>
 
             <div class="image-container">
-                <img src="images/C.Tribo.jpeg" alt="3. Tribo">
+                <img class="square-img" src="images/C.Tribo.jpeg" alt="3. Tribo">
                 <div class="image-caption">3. Tribo (Friction)</div>
             </div>
 
             <div class="image-container">
-                <img src="images/D.Temenos.jpeg" alt="4. Temenos">
+                <img class="square-img" src="images/D.Temenos.jpeg" alt="4. Temenos">
                 <div class="image-caption">4. Temenos (Action)</div>
             </div>
 
             <div class="image-container">
-                <img src="images/E.Panouden.jpeg" alt="5. Panouden">
+                <img class="square-img" src="images/E.Panouden.jpeg" alt="5. Panouden">
                 <div class="image-caption">5. Panouden (Reaction)</div>
             </div>
 
             <div class="image-container">
-                <img src="images/F.Mēden.jpg" alt="6. Mēden">
+                <img class="square-img" src="images/F.Mēden.jpg" alt="6. Mēden">
                 <div class="image-caption">6. Mēden (Naught)</div>
             </div>
 
             <div class="image-container">
-                <img src="images/G.Palin.jpeg" alt="7. Palin">
+                <img class="square-img" src="images/G.Palin.jpeg" alt="7. Palin">
                 <div class="image-caption">7. Palin (Iteration)</div>
             </div>
 
             <!-- Following Denominations & Systems -->
             <div class="image-container">
-                <img src="images/J.Apodictism.jpg" alt="Apodictism">
+                <img class="square-img" src="images/J.Apodictism.jpg" alt="Apodictism">
                 <div class="image-caption">Apodictism</div>
             </div>
 
             <div class="image-container">
-                <img src="images/I.Hosism.jpeg" alt="Hosism">
+                <img class="square-img" src="images/I.Hosism.jpeg" alt="Hosism">
                 <div class="image-caption">Hosism</div>
             </div>
 
             <div class="image-container">
-                <img src="images/K.Potentialism.jpg" alt="Potentialism">
+                <img class="square-img" src="images/K.Potentialism.jpg" alt="Potentialism">
                 <div class="image-caption">Potentialism</div>
             </div>
 
             <!-- Additional Depictions -->
             <div class="image-container">
-                <img src="images/Z.John Temnoism(1).jpg" alt="John Temnoism">
+                <img class="square-img" src="images/Z.John Temnoism(1).jpg" alt="John Temnoism">
                 <div class="image-caption">John Temnoism</div>
             </div>
 
             <div class="image-container">
-                <img src="images/ZZ.Hric(2).jpg" alt="Hric">
+                <img class="square-img" src="images/ZZ.Hric(2).jpg" alt="Hric">
                 <div class="image-caption">Hric</div>
             </div>
 
             <!-- 9:16 Aspect Ratio Depictions -->
-            <div class="image-container">
-                <img src="images/ZZZ.Arrows.jpg" alt="Arrows" style="aspect-ratio: 9 / 16;">
+            <div class="image-container portrait-card">
+                <img class="portrait-img" src="images/ZZZ.Arrows.jpg" alt="Arrows">
                 <div class="image-caption">Arrows</div>
             </div>
 
-            <div class="image-container">
-                <img src="images/ZZZ.That Witness.jpg" alt="That Witness" style="aspect-ratio: 9 / 16;">
+            <div class="image-container portrait-card">
+                <img class="portrait-img" src="images/ZZZ.That Witness.jpg" alt="That Witness">
                 <div class="image-caption">That Witness</div>
+            </div>
+
+            <!-- 16:9 Aspect Ratio Depictions -->
+            <div class="image-container wide-card">
+                <img class="landscape-img" src="images/ZZZZ.Refusal.jpg" alt="Refusal">
+                <div class="image-caption">Refusal</div>
+            </div>
+
+            <div class="image-container wide-card">
+                <img class="landscape-img" src="images/ZZZZZ.The Burning One.jpg" alt="The Burning One">
+                <div class="image-caption">The Burning One</div>
             </div>
 
         </div>
@@ -292,4 +330,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
