@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ktisism — Metaphysical Grid</title>
+    <style>
+        /* Base Dark Mode Styling */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #d1d1d1;
+            --accent-color: #ffffff;
+            --line-color: #222222;
+            --indent-border: #1a1a1a;
+        }
 
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Top Navigation Bar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            background-color: #000000;
+            border-bottom: 1px solid var(--line-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        /* Hamburger Menu Icon (Three Stripes) */
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: 0.3s;
+        }
+
+        /* Side Navigation Drawer */
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 260px;
+            height: 100%;
+            background-color: #0d0d0d;
+            border-left: 1px solid var(--line-color);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            transition: right 0.3s ease;
+            padding: 80px 20px 20px 20px;
+            z-index: 99;
+        }
+
+        .side-drawer.open {
+            right: 0;
+        }
+
+        .side-drawer h3 {
+            color: #666;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .side-drawer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-drawer li {
+            margin-bottom: 15px;
+        }
+
+        .side-drawer a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .side-drawer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Section Container */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px 100px 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 20px;
+        }
+
+        /* Python-Style Code Row Layout */
+        .code-block {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .row:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Line Numbers */
+        .line-num {
+            color: #444;
+            width: 40px;
+            flex-shrink: 0;
+            user-select: none;
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        .line-content {
+            flex-grow: 1;
+        }
+
+        /* Indentation levels (Python style) */
+        .indent-0 { margin-left: 0px; }
+        .indent-1 { margin-left: 20px; border-left: 1px solid var(--indent-border); padding-left: 10px; }
+        .indent-2 { margin-left: 40px; border-left: 1px solid var(--indent-border); padding-left: 10px; }
+        .indent-3 { margin-left: 60px; border-left: 1px solid var(--indent-border); padding-left: 10px; }
+
+        .keyword { color: #ffffff; font-weight: bold; }
+        .comment { color: #555555; }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">KTISISM</div>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Side Menu for Denominations & Sections -->
+    <div class="side-drawer" id="sideDrawer">
+        <h3>Denominations & Sections</h3>
+        <ul>
+            <li><a href="#onmetoism" onclick="toggleMenu()">1. Onmetoism</a></li>
+            <li><a href="#apodictism" onclick="toggleMenu()">2. Apodictism</a></li>
+            <li><a href="#hosism" onclick="toggleMenu()">3. Hosism</a></li>
+            <li><a href="#pavelhricism" onclick="toggleMenu()">4. Pavelhricism</a></li>
+            <li><a href="#quotation-system" onclick="toggleMenu()">5. Quotation System</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <h1 id="onmetoism">ONMETOISM</h1>
+        <div class="subtitle">System of Metaphysical Logic // Structural Grid</div>
+
+        <!-- Text arranged by rows with code-style line numbering & python indentation -->
+        <div class="code-block">
+            
+            <div class="row">
+                <span class="line-num">01</span>
+                <span class="line-content indent-0"><span class="keyword">def</span> system_ktisism():</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">02</span>
+                <span class="line-content indent-1"># Founding metaphysical belief system of "Ktisism"</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">03</span>
+                <span class="line-content indent-1">Nature = creates(elements, middle=1, below=2, above=2)</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">04</span>
+                <span class="line-content indent-1"><span class="keyword">class</span> Onmetoism:</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">05</span>
+                <span class="line-content indent-2">temno = "draw an edge towards division and union"</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">06</span>
+                <span class="line-content indent-2">forms = ["Emotion Onmetoism", "Instinct Onmetoism"]</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">07</span>
+                <span class="line-content indent-2"><span class="keyword">def</span> observe_friction(consciousness, awareness):</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">08</span>
+                <span class="line-content indent-3"><span class="keyword">if</span> observe(friction):</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">09</span>
+                <span class="line-content indent-3">return "Onmetoist"</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">10</span>
+                <span class="line-content indent-3"><span class="keyword">else</span>:</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">11</span>
+                <span class="line-content indent-3">return "Temnoist"</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">12</span>
+                <span class="line-content indent-0"># SEVEN TRUTHS OF ONMETOISM</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">13</span>
+                <span class="line-content indent-1">[0] Tomē (Potential): The text engraved between the lines.</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">14</span>
+                <span class="line-content indent-1">[1] Eikōn (Imagination): Everything and nothing is imagination.</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">15</span>
+                <span class="line-content indent-1">[2] Theló (Intention): True God does not require a symbol.</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">16</span>
+                <span class="line-content indent-1">[3] Tribo (Friction): Respect the Nature of opposite identities.</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">17</span>
+                <span class="line-content indent-1">[4] Temenos (Action): To exist is to lie into itself.</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">18</span>
+                <span class="line-content indent-1">[5] Panouden (Reaction): Domain of absolute observation.</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">19</span>
+                <span class="line-content indent-1">[6] Mēden (Naught): Absence of distinguished existence.</span>
+            </div>
+
+            <div class="row">
+                <span class="line-num">20</span>
+                <span class="line-content indent-1">[7] Palin (Iteration): Losing a law of Nature through repetition.</span>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Toggle Side Menu Drawer
+        function toggleMenu() {
+            const drawer = document.getElementById('sideDrawer');
+            drawer.classList.toggle('open');
+        }
+    </script>
+</body>
+  </html>
