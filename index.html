@@ -56,34 +56,38 @@
             font-size: 1.1rem;
             text-decoration: none;
 
-            /* Header Right Container */
+            /* Header Right Container Alignment */
 .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
 }
 
-/* Support Button Styling */
-.support-btn {
-    background: transparent;
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    padding: 5px 14px;
-    border-radius: 50px;
-    font-family: monospace;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+/* SUPPORT THIS Oval Button */
+button.support-btn {
+    background-color: transparent !important;
+    background: transparent !important;
+    color: var(--accent-color, #ffffff) !important;
+    border: 1px solid var(--accent-color, #ffffff) !important;
+    padding: 6px 14px !important;
+    border-radius: 50px !important; /* Forces the oval shape */
+    font-family: monospace !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
 }
 
-.support-btn:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    
-            }            
+button.support-btn:hover {
+    background-color: var(--accent-color, #ffffff) !important;
+    color: var(--bg-color, #0a0a0a) !important;
+}
 
             /* Support Modal Overlay */
 .support-modal-overlay {
@@ -161,24 +165,26 @@
     color: var(--accent-color);
             }
 
-        /* Hamburger Menu Icon */
-        .menu-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding: 5px;
-        }
+/* Restored 3-Stripe Hamburger Menu Button */
+button.menu-btn {
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    padding: 5px !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
 
-        .menu-btn span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: 0.3s;
-        }
+button.menu-btn span {
+    display: block !important;
+    width: 22px !important;
+    height: 2px !important;
+    background-color: var(--accent-color, #ffffff) !important;
+    transition: 0.3s !important;
+            }
 
         /* Side Navigation Drawer */
         .side-drawer {
