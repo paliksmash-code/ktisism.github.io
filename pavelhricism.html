@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ktisism - Onmetoism</title>    
-
-    <meta name="google" content="notranslate">
+    <title>Ktisism - Pavelhricism</title>
     
+    <meta name="google" content="notranslate">
     <meta name="robots" content="noarchive, noindex, nofollow, nocache">
     <meta name="googlebot" content="noarchive, noindex, nofollow">
     <meta name="bingbot" content="noarchive, noindex, nofollow">
-    
-        <style>
+
+    <style>
         /* Base Dark Mode Styling */
         :root {
             --bg-color: #0a0a0a;
@@ -32,7 +31,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            
         }
 
         /* Top Navigation Bar */
@@ -55,6 +53,34 @@
             text-transform: uppercase;
             font-size: 1.1rem;
             text-decoration: none;
+        }
+
+        /* Header Right Container for Support & Menu */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Oval Support Button */
+        .support-btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .support-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
         }
 
         /* Hamburger Menu Icon */
@@ -89,9 +115,8 @@
             transition: right 0.3s ease;
             padding: 80px 20px 20px 20px;
             z-index: 99;
-
-            overflow-y: auto;          /* Enables scrolling inside drawer when items overflow */
-            box-sizing: border-box;    /* Prevents padding from breaking height 100% */
+            overflow-y: auto;
+            box-sizing: border-box;
         }
 
         .side-drawer.open {
@@ -203,6 +228,82 @@
         .line-content {
             flex-grow: 1;
         }
+
+        /* Support Modal Overlay */
+        .support-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Support Modal Box */
+        .support-modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--line-color);
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            line-height: 1.6;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+
+        .support-modal-text {
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .support-modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .donate-btn, .modal-close-btn {
+            padding: 8px 20px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .donate-btn {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: 1px solid var(--accent-color);
+            font-weight: 600;
+        }
+
+        .donate-btn:hover {
+            opacity: 0.85;
+        }
+
+        .modal-close-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--line-color);
+        }
+
+        .modal-close-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
     </style>
 </head>
 <body>
@@ -210,16 +311,19 @@
     <!-- Header / Navbar -->
     <header>
         <a href="index.html" class="logo">KTISISM</a>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="nav-right">
+            <button class="support-btn" onclick="openSupportModal()">SUPPORT THIS</button>
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
 
     <!-- Side Menu Drawer -->
     <div class="side-drawer" id="sideDrawer">
-        <h3>Parts</h3>
+        <h3>PARTS</h3>
         <ul>
             <li><a href="index.html">1. Onmetoism</a></li>
             <li><a href="apodictism.html" onclick="toggleMenu()">2. Apodictism</a></li>
@@ -231,7 +335,7 @@
         </ul>
     </div>
 
-    <!-- Main Content -->
+<!-- Main Content -->
 <main>
     <h1 id="pavelhricism">4. PAVELHRICISM</h1>
 
@@ -648,13 +752,41 @@
             </div>
         </div>
     </section>
-                </main>
+                    </main>
+
+    <!-- Support Modal Overlay -->
+    <div id="supportModal" class="support-modal-overlay" onclick="closeSupportModalOnBackdrop(event)">
+        <div class="support-modal-content">
+            <div class="support-modal-text">
+                By understanding the text, you have entered the domain of it's own authority. Onmetoism and Ktisism are newborn metaphysical beliefs which are by that endangered and hunted in the world where every religion wages war on one another, and it's sage abandoned the average material future to bring you it's truth. If you received it then the least you could do is make it "withstand and expand" by lending it a buck.
+            </div>
+            <div class="support-modal-actions">
+                <a href="YOUR_DONATION_LINK_HERE" target="_blank" class="donate-btn">Donate</a>
+                <button class="modal-close-btn" onclick="closeSupportModal()">Close</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Toggle Side Menu Drawer
         function toggleMenu() {
             const drawer = document.getElementById('sideDrawer');
             drawer.classList.toggle('open');
+        }
+
+        // Support Modal Controls
+        function openSupportModal() {
+            document.getElementById('supportModal').style.display = 'flex';
+        }
+
+        function closeSupportModal() {
+            document.getElementById('supportModal').style.display = 'none';
+        }
+
+        function closeSupportModalOnBackdrop(event) {
+            if (event.target === document.getElementById('supportModal')) {
+                closeSupportModal();
+            }
         }
 
         // Defensive Anti-Copy Safeguards
@@ -667,5 +799,4 @@
         });
     </script>
 </body>
-</html>
-
+                    </html>
