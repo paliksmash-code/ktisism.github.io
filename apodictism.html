@@ -204,13 +204,21 @@
             flex-grow: 1;
         }
 
-        <!-- Support Modal & Button Styling -->
+        <!-- Support Button & Modal System -->
 <style>
-    /* Header Right Container Alignment */
-    .header-right {
-        display: flex;
-        align-items: center;
-        gap: 15px;
+    /* Ensure Header aligns items horizontally */
+    header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    /* Container to group Support Button & Menu Button together horizontally */
+    .nav-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important; /* Space between Support button and 3-stripe menu */
     }
 
     /* Oval Support Button Styling */
@@ -218,14 +226,16 @@
         background: transparent;
         color: var(--accent-color, #ffffff);
         border: 1px solid var(--accent-color, #ffffff);
-        padding: 6px 16px;
+        padding: 5px 12px;
         border-radius: 50px; /* Oval shape */
         font-family: inherit;
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         cursor: pointer;
         transition: all 0.2s ease;
         text-transform: uppercase;
         letter-spacing: 1px;
+        white-space: nowrap;
+        line-height: 1;
     }
 
     .support-btn:hover {
@@ -235,7 +245,7 @@
 
     /* Modal Overlay Backdrop */
     .support-modal-overlay {
-        display: none; /* Hidden by default */
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -312,6 +322,38 @@
         border-color: var(--accent-color, #ffffff);
         color: var(--accent-color, #ffffff);
     }
+</style>
+
+<!-- Support Popup Modal Structure -->
+<div id="supportModal" class="support-modal-overlay" onclick="closeSupportModalOnBackdrop(event)">
+    <div class="support-modal-content">
+        <div class="support-modal-text">
+            By understanding the text, you have entered the domain of it's own authority. Onmetoism and Ktisism are newborn metaphysical beliefs which are by that endangered and hunted in the world where every religion wages war on one another, and it's sage abandoned the average material future to bring you it's truth. If you received it then the least you could do is make it "withstand and expand" by lending it a buck.
+        </div>
+        <div class="support-modal-actions">
+            <!-- Replace YOUR_DONATION_LINK_HERE with your custom URL -->
+            <a href="YOUR_DONATION_LINK_HERE" target="_blank" class="donate-btn">Donate</a>
+            <button class="modal-close-btn" onclick="closeSupportModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<!-- Functions Script -->
+<script>
+    function openSupportModal() {
+        document.getElementById('supportModal').style.display = 'flex';
+    }
+
+    function closeSupportModal() {
+        document.getElementById('supportModal').style.display = 'none';
+    }
+
+    function closeSupportModalOnBackdrop(event) {
+        if (event.target === document.getElementById('supportModal')) {
+            closeSupportModal();
+        }
+    }
+</script>
             
     </style>
 </head>
