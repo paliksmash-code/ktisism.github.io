@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ktisism - Depictions</title>
-
-    <!-- Anti-Translation Directives -->
+    
     <meta name="google" content="notranslate">
-
-    <!-- Anti-Caching & Archiving Directives -->
     <meta name="robots" content="noarchive, noindex, nofollow, nocache">
     <meta name="googlebot" content="noarchive, noindex, nofollow">
     <meta name="bingbot" content="noarchive, noindex, nofollow">
@@ -22,18 +19,18 @@
             --line-color: #222222;
         }
 
-        /* Anti-Copy Protection Rules */
-        body, html {
+        body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* IE/Edge */
-            user-select: none;        /* Standard */
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         /* Top Navigation Bar */
@@ -43,6 +40,478 @@
             align-items: center;
             padding: 18px 24px;
             background-color: #000000;
+            border-bottom: 1px solid var(--line-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        /* Header Right Container for Support & Menu */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Oval Support Button */
+        .support-btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .support-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Hamburger Menu Icon */
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: 0.3s;
+        }
+
+        /* Side Navigation Drawer */
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 260px;
+            height: 100%;
+            background-color: #0d0d0d;
+            border-left: 1px solid var(--line-color);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            transition: right 0.3s ease;
+            padding: 80px 20px 20px 20px;
+            z-index: 99;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .side-drawer.open {
+            right: 0;
+        }
+
+        .side-drawer h3 {
+            color: #666;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .side-drawer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-drawer li {
+            margin-bottom: 15px;
+        }
+
+        .side-drawer a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .side-drawer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Section Container */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px 100px 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            color: #888888;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* Plain Unnumbered Introduction */
+        .intro-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+        }
+
+        .intro-section p {
+            margin: 0;
+        }
+
+        /* Sentence Grid Format */
+        .text-block {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .row:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .line-num {
+            color: #444;
+            width: 40px;
+            flex-shrink: 0;
+            user-select: none;
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        .line-content {
+            flex-grow: 1;
+        }
+
+        /* Support Modal Overlay */
+        .support-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Support Modal Box */
+        .support-modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--line-color);
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            line-height: 1.6;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+
+        .support-modal-text {
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .support-modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .donate-btn, .modal-close-btn {
+            padding: 8px 20px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .donate-btn {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: 1px solid var(--accent-color);
+            font-weight: 600;
+        }
+
+        .donate-btn:hover {
+            opacity: 0.85;
+        }
+
+        .modal-close-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--line-color);
+        }
+
+        .modal-close-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <a href="index.html" class="logo">KTISISM</a>
+        <div class="nav-right">
+            <button class="support-btn" onclick="openSupportModal()">SUPPORT THIS</button>
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Side Menu Drawer -->
+    <div class="side-drawer" id="sideDrawer">
+        <h3>PARTS</h3>
+        <ul>
+            <li><a href="index.html">1. Onmetoism</a></li>
+            <li><a href="apodictism.html" onclick="toggleMenu()">2. Apodictism</a></li>
+            <li><a href="hosism.html" onclick="toggleMenu()">3. Hosism</a></li>
+            <li><a href="pavelhricism.html" onclick="toggleMenu()">4. Pavelhricism</a></li>
+            <li><a href="quotationsystem.html" onclick="toggleMenu()">5. Quotation System</a></li>
+            <li><a href="depictions.html">6. Depictions</a></li>
+            <li><a href="tou.html">7. Terms of Use</a></li>
+        </ul>
+    </div>
+
+<!-- Main Content -->
+    <main>
+        <h1>6. DEPICTIONS</h1>
+        <div class="image-grid">
+
+            <!-- Top Foundations -->
+            <div class="image-container">
+                <img class="square-img" src="images/H.Temnoism.png" alt="Temnoism">
+                <div class="image-caption">Temnoism</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/HH.Onmetoism.jpg" alt="Onmetoism">
+                <div class="image-caption">Onmetoism</div>
+            </div>
+
+            <!-- The Seven Truths (Including Tomē) -->
+            <div class="image-container">
+                <img class="square-img" src="images/A.Tomē.jpg" alt="0. Tomē">
+                <div class="image-caption">0. Tomē (Potential)</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/AA.Eikon.png" alt="1. Eikōn">
+                <div class="image-caption">1. Eikōn (Imagination)</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/B.Misohyle.jpg" alt="2. Theló">
+                <div class="image-caption">2. Theló (Intention)</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/C.Tribo.jpeg" alt="3. Tribo">
+                <div class="image-caption">3. Tribo (Friction)</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/D.Temenos.jpeg" alt="4. Temenos">
+                <div class="image-caption">4. Temenos (Action)</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/E.Panouden.jpeg" alt="5. Panouden">
+                <div class="image-caption">5. Panouden (Reaction)</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/F.Mēden.jpg" alt="6. Mēden">
+                <div class="image-caption">6. Mēden (Naught)</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/G.Palin.jpeg" alt="7. Palin">
+                <div class="image-caption">7. Palin (Iteration)</div>
+            </div>
+
+            <!-- Following Denominations & Systems -->
+            <div class="image-container">
+                <img class="square-img" src="images/J.Apodictism.jpg" alt="Apodictism">
+                <div class="image-caption">Apodictism</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/I.Hosism.jpeg" alt="Hosism">
+                <div class="image-caption">Hosism</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/K.Potentialism.jpg" alt="Potentialism">
+                <div class="image-caption">Potentialism</div>
+            </div>
+
+            <!-- Additional Depictions -->
+            <div class="image-container">
+                <img class="square-img" src="images/Z.John Temnoism(1).jpg" alt="John Temnoism">
+                <div class="image-caption">John Temnoism</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/ZZ.Hric(2).jpg" alt="Hric">
+                <div class="image-caption">Hric</div>
+            </div>
+
+            <!-- 9:16 Aspect Ratio Depictions -->
+            <div class="image-container portrait-card">
+                <img class="portrait-img" src="images/ZZZ.Arrows.jpg" alt="Arrows">
+                <div class="image-caption">Arrows</div>
+            </div>
+
+            <div class="image-container portrait-card">
+                <img class="portrait-img" src="images/ZZZ.That Witness.jpg" alt="That Witness">
+                <div class="image-caption">That Witness</div>
+            </div>
+
+            <!-- 16:9 Aspect Ratio Depictions -->
+            <div class="image-container wide-card">
+                <img class="landscape-img" src="images/ZZZZ.Refusal.jpg" alt="Refusal">
+                <div class="image-caption">Refusal</div>
+            </div>
+
+            <div class="image-container wide-card">
+                <img class="landscape-img" src="images/ZZZZZ.The Burning One.jpg" alt="The Burning One">
+                <div class="image-caption">The Burning One</div>
+            </div>
+
+            <!-- 1:1 Aspect Ratio Depictions -->
+            <div class="image-container">
+                <img class="square-img" src="images/ZZZZZZ.Behaviour.jpg" alt="Behaviour">
+                <div class="image-caption">Behaviour</div>
+            </div>
+
+            <div class="image-container">
+                <img class="square-img" src="images/ZZZZZZ.Threethe.jpg" alt="Threethe">
+                <div class="image-caption">Threethe</div>
+            </div>
+
+            <!-- Final Depictions -->
+            <div class="image-container wide-card">
+                <img class="landscape-img" src="images/ZZZZZZZ.Tripe.jpg" alt="Tripe">
+                <div class="image-caption">Tripe</div>
+            </div>
+
+            <div class="image-container portrait-card">
+                <img class="portrait-img" src="images/ZZZZZZZZ.AN Example.jpg" alt="AN Example">
+                <div class="image-caption">AN Example</div>
+            </div>
+
+        </div>
+                </main>
+
+    <!-- Support Modal Overlay -->
+    <div id="supportModal" class="support-modal-overlay" onclick="closeSupportModalOnBackdrop(event)">
+        <div class="support-modal-content">
+            <div class="support-modal-text">
+                By understanding the text, you have entered the domain of it's own authority. Onmetoism and Ktisism are newborn metaphysical beliefs which are by that endangered and hunted in the world where every religion wages war on one another, and it's sage abandoned the average material future to bring you it's truth. If you received it then the least you could do is make it "withstand and expand" by lending it a buck.
+            </div>
+            <div class="support-modal-actions">
+                <a href="YOUR_DONATION_LINK_HERE" target="_blank" class="donate-btn">Donate</a>
+                <button class="modal-close-btn" onclick="closeSupportModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Side Menu Drawer
+        function toggleMenu() {
+            const drawer = document.getElementById('sideDrawer');
+            drawer.classList.toggle('open');
+        }
+
+        // Support Modal Controls
+        function openSupportModal() {
+            document.getElementById('supportModal').style.display = 'flex';
+        }
+
+        function closeSupportModal() {
+            document.getElementById('supportModal').style.display = 'none';
+        }
+
+        function closeSupportModalOnBackdrop(event) {
+            if (event.target === document.getElementById('supportModal')) {
+                closeSupportModal();
+            }
+        }
+
+        // Defensive Anti-Copy Safeguards
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && ['c', 'u', 's', 'a', 'p'].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+                    </html>
             border-bottom: 1px solid var(--line-color);
             position: sticky;
             top: 0;
