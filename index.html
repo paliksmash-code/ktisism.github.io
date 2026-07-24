@@ -89,6 +89,9 @@
             transition: right 0.3s ease;
             padding: 80px 20px 20px 20px;
             z-index: 99;
+
+            overflow-y: auto;          /* Enables scrolling inside drawer when items overflow */
+            box-sizing: border-box;    /* Prevents padding from breaking height 100% */
         }
 
         .side-drawer.open {
