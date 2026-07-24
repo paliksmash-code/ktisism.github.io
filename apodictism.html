@@ -203,19 +203,136 @@
         .line-content {
             flex-grow: 1;
         }
+
+        <!-- Support Modal & Button Styling -->
+<style>
+    /* Header Right Container Alignment */
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Oval Support Button Styling */
+    .support-btn {
+        background: transparent;
+        color: var(--accent-color, #ffffff);
+        border: 1px solid var(--accent-color, #ffffff);
+        padding: 6px 16px;
+        border-radius: 50px; /* Oval shape */
+        font-family: inherit;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .support-btn:hover {
+        background-color: var(--accent-color, #ffffff);
+        color: var(--bg-color, #0a0a0a);
+    }
+
+    /* Modal Overlay Backdrop */
+    .support-modal-overlay {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* Modal Main Content Box */
+    .support-modal-content {
+        background-color: var(--bg-color, #0a0a0a);
+        color: var(--text-color, #d1d1d1);
+        border: 1px solid var(--line-color, #222222);
+        border-radius: 8px;
+        max-width: 520px;
+        width: 100%;
+        padding: 28px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+        position: relative;
+        text-align: left;
+        line-height: 1.6;
+    }
+
+    .support-modal-text {
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+    }
+
+    /* Action Buttons Box Inside Modal */
+    .support-modal-actions {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+    }
+
+    .support-modal-actions a,
+    .support-modal-actions button {
+        text-decoration: none;
+        padding: 8px 20px;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+    }
+
+    /* Donate Button */
+    .donate-btn {
+        background-color: var(--accent-color, #ffffff);
+        color: var(--bg-color, #0a0a0a);
+        border: 1px solid var(--accent-color, #ffffff);
+        font-weight: 600;
+    }
+
+    .donate-btn:hover {
+        opacity: 0.9;
+    }
+
+    /* Close Button */
+    .modal-close-btn {
+        background-color: transparent;
+        color: var(--text-color, #d1d1d1);
+        border: 1px solid var(--line-color, #222222);
+    }
+
+    .modal-close-btn:hover {
+        border-color: var(--accent-color, #ffffff);
+        color: var(--accent-color, #ffffff);
+    }
+            
     </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <a href="index.html" class="logo">KTISISM</a>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
+<!-- Header / Navbar -->
+<header>
+    <a href="index.html" class="logo">KTISISM</a>
+    
+    <div class="header-right">
+        <!-- Support Button -->
+        <button class="support-btn" onclick="openSupportModal()">Support This</button>
+        
+        <!-- Existing Hamburger Menu Button -->
+        <button class="menu-btn" onclick="toggleMenu()">
             <span></span>
             <span></span>
             <span></span>
         </button>
-    </header>
+    </div>
+</header>
 
     <!-- Side Menu Drawer -->
     <div class="side-drawer" id="sideDrawer">
