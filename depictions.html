@@ -58,6 +58,110 @@
             text-decoration: none;
         }
 
+        /* Header Right Container */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Support Button Styling */
+.support-btn {
+    background: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-family: monospace;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.support-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+        /* Support Modal Overlay */
+.support-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Support Modal Content Box */
+.support-modal-content {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--line-color);
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    line-height: 1.6;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+.support-modal-text {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.support-modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.donate-btn, .modal-close-btn {
+    padding: 8px 20px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.donate-btn {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    font-weight: 600;
+}
+
+.donate-btn:hover {
+    opacity: 0.85;
+}
+
+.modal-close-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--line-color);
+}
+
+.modal-close-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    }
+
         /* Hamburger Menu Icon */
         .menu-btn {
             background: none;
@@ -210,15 +314,18 @@
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <a href="index.html" class="logo">KTISISM</a>
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Navigation Menu">
+<!-- Header / Navbar -->
+<header>
+    <a href="index.html" class="logo">KTISISM</a>
+    <div class="nav-right">
+        <button class="support-btn" onclick="openSupportModal()">SUPPORT THIS</button>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
-    </header>
+    </div>
+</header>
 
     <!-- Side Menu Drawer -->
     <div class="side-drawer" id="sideDrawer">
@@ -381,5 +488,35 @@
             }
         });
     </script>
+
+<!-- Support Modal Popup -->
+<div id="supportModal" class="support-modal-overlay" onclick="closeSupportModalOnBackdrop(event)">
+    <div class="support-modal-content">
+        <div class="support-modal-text">
+            By understanding the text, you have entered the domain of it's own authority. Onmetoism and Ktisism are newborn metaphysical beliefs which are by that endangered and hunted in the world where every religion wages war on one another, and it's sage abandoned the average material future to bring you it's truth. If you received it then the least you could do is make it "withstand and expand" by lending it a buck.
+        </div>
+        <div class="support-modal-actions">
+            <a href="YOUR_DONATION_LINK_HERE" target="_blank" class="donate-btn">Donate</a>
+            <button class="modal-close-btn" onclick="closeSupportModal()">Close</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openSupportModal() {
+        document.getElementById('supportModal').style.display = 'flex';
+    }
+
+    function closeSupportModal() {
+        document.getElementById('supportModal').style.display = 'none';
+    }
+
+    function closeSupportModalOnBackdrop(event) {
+        if (event.target === document.getElementById('supportModal')) {
+            closeSupportModal();
+        }
+    }
+</script>
+    
 </body>
                                                          </html>
