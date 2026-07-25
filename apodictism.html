@@ -153,6 +153,22 @@
             color: var(--accent-color);
         }
 
+        /* Discord Link Button Pinning */
+.discord-link {
+    position: absolute;
+    bottom: 24px;
+    right: 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-family: monospace;
+    transition: color 0.2s ease;
+}
+
+.discord-link:hover {
+    color: var(--accent-color);
+            }
+
         /* Main Section Container */
         main {
             max-width: 900px;
@@ -333,6 +349,9 @@
             <li><a href="depictions.html">6. Depictions</a></li>
             <li><a href="tou.html">7. Terms of Use</a></li>
         </ul>
+
+    <!-- Discord Link (Replace YOUR_DISCORD_INVITE_LINK below) -->
+    <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" class="discord-link">Discord</a>
     </div>
 
     <!-- Main Content -->
