@@ -19,11 +19,14 @@
             --line-color: #222222;
         }
 
-body {
+html, body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Courier New', Courier, monospace;
+    width: 100%;
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     padding: 0;
     line-height: 1.6;
             -webkit-user-select: none;
@@ -43,8 +46,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    width: max-content;
-    min-width: 100%;
+    width: 100%;
     box-sizing: border-box;
         }
 
@@ -157,8 +159,10 @@ header {
 
         /* Main Section Container */
 main {
-    width: max-content;
-    min-width: 100%;
+    max-width: 900px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 0 20px 100px 20px;
     box-sizing: border-box;
         }
 
@@ -306,6 +310,14 @@ main {
             border-color: var(--accent-color);
             color: var(--accent-color);
         }
+
+        p, .intro-section, .text-block, .line-content {
+            white-space: pre-wrap;      /* Allows preformatted text to wrap */
+            overflow-wrap: break-word;  /* Breaks long words if needed */
+            word-break: break-word;
+            max-width: 100%;
+        }
+
     </style>
 </head>
 <body>
