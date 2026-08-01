@@ -33,16 +33,19 @@ body {
         }
 
         /* Top Navigation Bar */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 24px;
-            background-color: #000000;
-            border-bottom: 1px solid var(--line-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background-color: #000000;
+    border-bottom: 1px solid var(--line-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: max-content;
+    min-width: 100%;
+    box-sizing: border-box;
         }
 
         .logo {
@@ -153,10 +156,10 @@ body {
         }
 
         /* Main Section Container */
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px 100px 20px;
+main {
+    width: max-content;
+    min-width: 100%;
+    box-sizing: border-box;
         }
 
         h1 {
