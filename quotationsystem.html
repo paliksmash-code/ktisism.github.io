@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ktisism - Apodictism</title>
+    <title>Ktisism - Quotation System</title>
     
     <meta name="google" content="notranslate">
     <meta name="robots" content="noarchive, noindex, nofollow, nocache">
@@ -187,13 +187,14 @@ body {
         .intro-section {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
             font-size: 0.95rem;
-            margin-bottom: 40px;
+            margin-bottom: 24px;
         }
 
         .intro-section p {
             margin: 0;
+            white-space: pre-wrap;
         }
 
         /* Sentence Grid Format */
@@ -340,16 +341,18 @@ body {
 
     <!-- System Overview -->
     <div class="intro-section">
-        <p>Rows of Section = Numbers</p>
-        <p>Example: (AB/;01-12;)</p>
-        <p>The 2 letters represent the section<br>Example: (AB/</p>
-        <p>The ";" represent that you must start reading after the nearest "."<br>
-        Example: (AB/;<br>
-        Example: (AB/;.01-12;), (AB/;..01-12;), (AB/;...01-12;), (AB/;01-12;.), (AB/;01-12;..), (AB/01-12;...)</p>
-        <p>The two numbers represent which row you start reading on and which one you stop reading on, if the text consists of one row you only write that number.<br>
-        Example: /;01-12;), /;01;)</p>
-        <p>If you want a text read from beginning until the ending you manually use B and E to replace the two numbers.<br>
-        Example: /;B-E;)</p>
+        <p>Rows of Section = Numbers
+Example: (AB/;01-12;)
+The 2 letters represent the section
+Example: (AB/
+The ";" represent that you must start reading after the nearest "."
+Example: (AB/;01-12;)
+Example: (AB/;.01-12;), (AB/;..01-12;), (AB/;...01-12;),
+(AB/;01-12;.), (AB/;01-12;..), (AB/01-12;...)
+The two numbers represent which sentence you start reading on and which one you stop reading on, if the text consists of one sentence you only write that number.
+Example: /;01-12;), /;01;)
+If you want a text read from beggining until the ending you manually use B and E to replace the two numbers.
+Example: /;B-E;)</p>
     </div>
 
     <!-- The Sections Mapping -->
@@ -357,121 +360,34 @@ body {
         <h3>The Sections:</h3>
 
         <div class="text-block">
-            <div class="row">
-                <span class="line-content">Temnōelenchos = (TE/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Seven Truths of Onmetoism:</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Tomē = (TO/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Eikōn = (EI/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Theló = (TH/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Tribo = (TI/;B-E;)</span>
-            </div>
-
-             <div class="row">
-                <span class="line-content">Thought (TT/;B-E;)</span>
-             </div>
-
-            <div class="row">
-                <span class="line-content">Temenos = (TM/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Act = (AT/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Panouden = (PD/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Mēden = (MD/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Palin = (PI/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Decision = (DN/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Seven Lies of Temnoism = (SO/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Principles of an Onmetoist = (PT/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Hostism:</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Laws of the Will = (LW/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Lower versus Higher = (EE/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Law to Division = (LD/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Apodictism:</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Metaphysics = (MP/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Physics = (DU/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Maths = (EN/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Biology = (FM/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Science = (SC/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Pavelhricism:</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Temporal Scripture = (TS/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Entos-he-hairesis = (EH/;B-E;)</span>
-            </div>
-
-            <div class="row">
-                <span class="line-content">Eternal Leader = (EL/;B-E;)</span>
-            </div>
+            <div class="row"><span class="line-content">Temnōelenchos = (TE/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Seven Truths of Onmetoism:</span></div>
+            <div class="row"><span class="line-content">Tomē = (TO/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Eikōn = (EI/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Theló = (TH/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Tribo = (TI/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Thought (TT/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Temenos = (TM/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Act = (AT/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Panouden = (PD/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Mēden = (MD/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Palin = (PI/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Decision = (DN/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Seven Lies of Temnoism = (SO/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Principles of an Onmetoist = (PT/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Apodictism:</span></div>
+            <div class="row"><span class="line-content">Metaphysics = (MP/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Physics = (DU/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Maths = (EN/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Biology = (FM/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Science = (SC/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Hostism:</span></div>
+            <div class="row"><span class="line-content">Laws of the Will = (LW/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Law to Division = (LD/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Pavelhricism:</span></div>
+            <div class="row"><span class="line-content">Entos-he-hairesis = (EH/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Eternal Leader = (EL/;B-E;)</span></div>
+            <div class="row"><span class="line-content">Onmetoist Syncrecy = (OS/;B-E;)</span></div>
         </div>
     </section>
     </main>
