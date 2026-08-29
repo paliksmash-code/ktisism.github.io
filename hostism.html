@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ktisism - Hostism</title>
+    
+    <meta name="google" content="notranslate">
+    <meta name="robots" content="noarchive, noindex, nofollow, nocache">
+    <meta name="googlebot" content="noarchive, noindex, nofollow">
+    <meta name="bingbot" content="noarchive, noindex, nofollow">
+
+    <style>
+        /* Base Dark Mode */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #d1d1d1;
+            --accent-color: #ffffff;
+            --line-color: #222222;
+        }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Top Navigation Bar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            background-color: #000000;
+            border-bottom: 1px solid var(--line-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        /* Header Right Container for Support & Menu */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Support Button */
+        .support-btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .support-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Menu Icon */
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: 0.3s;
+        }
+
+        /* Side Navigation Drawer */
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 260px;
+            height: 100%;
+            background-color: #0d0d0d;
+            border-left: 1px solid var(--line-color);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            transition: right 0.3s ease;
+            padding: 80px 20px 20px 20px;
+            z-index: 99;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .side-drawer.open {
+            right: 0;
+        }
+
+        .side-drawer h3 {
+            color: #666;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .side-drawer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-drawer li {
+            margin-bottom: 15px;
+        }
+
+        .side-drawer a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .side-drawer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Section Container */
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px 100px 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            color: #888888;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* Plain Introduction */
+        .intro-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+        }
+
+        .intro-section p {
+            margin: 0;
+        }
+
+        /* Sentence Grid Format */
+        .text-block {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .row:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .line-num {
+            color: #444;
+            width: 40px;
+            flex-shrink: 0;
+            user-select: none;
+            text-align: right;
+            padding-right: 15px;
+        }
+
+        .line-content {
+            flex-grow: 1;
+        }
+
+        /* Support Modal Overlay */
+        .support-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Support Modal Content */
+        .support-modal-content {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--line-color);
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+            line-height: 1.6;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+
+        .support-modal-text {
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .support-modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+
+        .donate-btn, .modal-close-btn {
+            padding: 8px 20px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        .donate-btn {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: 1px solid var(--accent-color);
+            font-weight: 600;
+        }
+
+        .donate-btn:hover {
+            opacity: 0.85;
+        }
+
+        .modal-close-btn {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--line-color);
+        }
+
+        .modal-close-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <a href="index.html" class="logo">KTISISM</a>
+        <div class="nav-right">
+            <button class="support-btn" onclick="openSupportModal()">SUPPORT THIS</button>
+            <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Side Menu Drawer -->
+    <div class="side-drawer" id="sideDrawer">
+        <h3>PARTS</h3>
+        <ul>
+            <li><a href="index.html">1. Onmetoism</a></li>
+            <li><a href="apodictism.html" onclick="toggleMenu()">2. Apodictism</a></li>
+            <li><a href="hostism.html" onclick="toggleMenu()">3. Hostism</a></li>
+            <li><a href="pavelhricism.html" onclick="toggleMenu()">4. Pavelhricism</a></li>
+            <li><a href="quotationsystem.html" onclick="toggleMenu()">5. Quotation System</a></li>
+            <li><a href="depictions.html">6. Depictions</a></li>
+            <li><a href="tou.html">7. Terms of Use</a></li>
+        </ul>
+    </div>
+
+<!-- Main Content -->
+<main>
+    <h1 id="hostism">3. HOSTISM</h1>
+
+    <!-- Plain Introduction -->
+    <div class="intro-section">
+        <p>While Hostism was written by the author of Onmetoism, Hostism is publicly owned and not necessarily a doctrine of Onmetoism; Hostism is only supported as a contribution to Onmetoism and Ktisism.</p>
+        <p>Hostism is a lie-telling and publicly owned Onmetoist, Temnoist, and Ktisist denomination, philosophy, and ideology.</p>
+        <p>As a denomination, it is the belief of individual over all; it is a distraction for the bodies, which bodies of division need to remain divided; purposeful distractions from meaning, and meaningful distractions from purpose.</p>
+        <p>It aims to deceive the environment around the individual with the lie, to protect the individual from the truth or inexistence; it is worship of the Seven Lies to preserve the Seven Truths within the individual and not without it.</p>
+        <p>As a metaphysical philosophy, or Phihostism, it is not only the hateful respect of all other bodies, but also all inanimate things and the mere vision of them; as the respect of hate is the love of trust.</p>
+        <p>As an ideology, or Ideohostism, it is conflict for the sake of conflict, as conflict is considered the Nature of division, and conflict is the eternal governance.</p>
+        <p>It attacks mental error as a result of the separation and domestication of governance, but it aims to use the existence of the chaos the order brought for its own social benefit.</p>
+        <p>Its ultimate goal is to let chaos experience chaos, and it is an ideology that attacks all including itself; one can not be against it, as one would get consumed by Hostism.</p>
+    </div>
+
+    <!-- Laws of the Will Section -->
+    <section id="laws-of-the-will" class="denomination-section">
+        <h3>Laws of the Will:</h3>
+
+        <div class="text-block">
+            <div class="row"><span class="line-num">01</span><span class="line-content">All does all to remain; none rejects Nature.</span></div>
+            <div class="row"><span class="line-num">02</span><span class="line-content">All follows the preservation and exchange of itself, and all remains.</span></div>
+            <div class="row"><span class="line-num">03</span><span class="line-content">When one begins to prioritize another over oneself, one becomes two, and has entered a state of internal loss, unless one plays an act to place another in eternal debt, and to become a social predator.</span></div>
+            <div class="row"><span class="line-num">04</span><span class="line-content">The social predator is one who abuses the requirements of another, turning another into the social prey.</span></div>
+            <div class="row"><span class="line-num">05</span><span class="line-content">The social prey only exists due to a sympathetic reaction of instinct and emotion; sympathy is an unnatural vulnerability, or a mental error, as unnature is a sensory error where one fails to separate its Nature and the Nature of another, making one to not remain.</span></div>
+            <div class="row"><span class="line-num">06</span><span class="line-content">Sympathy is a mental error as it forces one to act against one's own remaining; it is a hijack of the mind by an external conflict; when one perceives the requirements of another as its own requirements, one is under a hijack.</span></div>
+            <div class="row"><span class="line-num">07</span><span class="line-content">Every exchange in a world and domain of division forms an opposite, or chaos, and sympathy is the deadly exchange.</span></div>
+            <div class="row"><span class="line-num">08</span><span class="line-content">Exchange is forced by the opposites of emotion and instinct alike, of fear and euphoria and of war and peace, and unnature and Nature alike are forced as they oppose the Nature and the unnature, and your Nature alike; exchange and reversal are one with opposition.</span></div>
+            <div class="row"><span class="line-num">09</span><span class="line-content">Laughter does not make happiness, as scream does not make fear.</span></div>
+            <div class="row"><span class="line-num">10</span><span class="line-content">Regret is not an emotion or an instinct, but is a gradually rising mental illness of perceived empathy, and it is forced by emotion and instinct, as it is contracted not from the natural environment but from its artificial product, which is unperceived as artificial.</span></div>
+            <div class="row"><span class="line-num">11</span><span class="line-content">Sympathy and regret act as backdoors that allow any parasite to seize control of the host.</span></div>
+            <div class="row"><span class="line-num">12</span><span class="line-content">By abusing emotion and instinct will a predator make one serve its foreign interest.</span></div>
+            <div class="row"><span class="line-num">13</span><span class="line-content">One that can not tell the difference between oneself and another is under mental illness, and mental illness forms by being domesticated either by removing natural reactions to actions, or by not being conscious of them.</span></div>
+            <div class="row"><span class="line-num">14</span><span class="line-content">When the physical or mental environment is artificial to a domesticating measure, the body loses its ability to tell a difference; the domesticated body begins to trade in reactional exchange rather than beneficial objective; ultimately turning the reactional exchange into its beneficial objective, forming a mental illness; domestication creates a cycle of weakness to social debt where one becomes a host for a parasite.</span></div>
+            <div class="row"><span class="line-num">15</span><span class="line-content">To trust something is to rely on its Nature, to hate; to hate something is to respect its Nature, to love; the respect of hate is the love of trust, while the trust of love is the hate of respect; you can only select one, as if you selected two you would be zero.</span></div>
+            <div class="row"><span class="line-num">16</span><span class="line-content">Hate of another is not due to difference but due to indifference, and the love of another is not due to indifference but due to difference; in a view of indifference, a different world settles, and in a view of difference, an indifferent world settles, as difference is the opposite of indifference.</span></div>
+            <div class="row"><span class="line-num">17</span><span class="line-content">Hate settles in a view of indifference, love settles in a view of difference, yet they both reverse one another.</span></div>
+            <div class="row"><span class="line-num">18</span><span class="line-content">Love dies gradually for once and lives at once, and hate lives at once to die gradually; an individual always has a stance in which it defends itself regardless of the situation as a replication of the will to remain; if there is no will to remain, the individual is dying and will cause gradual inexistence; the stupid and the foolish are mirrors of themselves.</span></div>
+            <div class="row"><span class="line-num">19</span><span class="line-content">All around one is a mirror, but there are two different mirrors mirroring each other from above, below, within, and without; the ones whose vision is on the image of the mirror are not ones but twos, and the ones whose vision is on the structure of the mirror are not ones but threes; yet they both stare at mirrors which do not vanish when they shut their eyes.</span></div>
+            <div class="row"><span class="line-num">20</span><span class="line-content">A being that celebrates its own loss is a being in unnature.</span></div>
+            <div class="row"><span class="line-num">21</span><span class="line-content">Your Nature allows there to be conflict for the sake of conflict, and the conflict of governance.</span></div>
+            <div class="row"><span class="line-num">22</span><span class="line-content">The government of governance exists as the orderly and unnatural divider which allows the existence of the chaotic division.</span></div>
+            <div class="row"><span class="line-num">23</span><span class="line-content">Governance is a natural exchange which never ends, and it forms with the natural family of individual, angel, and demon; the individual, the God, and the Devil; an individual, matter, and spirit; it governs the mind eternally.</span></div>
+            <div class="row"><span class="line-num">24</span><span class="line-content">Governance creates a false union of division and a false equality of inequality which creates greater division of the stupid and wise; governance is eternal in division.</span></div>
+            <div class="row"><span class="line-num">25</span><span class="line-content">Governance naturally forces its unnature unto the weak and stupid, and governance naturally separates the strong and foolish in their Nature; turning the mental error and exchange of morality into a societal standard is to birth the foolish and kill the stupid; to separate and to domesticate.</span></div>
+            <div class="row"><span class="line-num">26</span><span class="line-content">If all want all, then none want any; chaos is the only idea of the force of order; order shall tyrant in a world of chaos, and chaos shall tyrant in a world of order, as peace shall tyrant in a world of war, and war shall tyrant in a world of peace.</span></div>
+            <div class="row"><span class="line-num">27</span><span class="line-content">The children of order shall become their own father, and the fathers of chaos shall become their own children; the fathers of order shall become their own child of chaos, and the children of chaos shall become their own father of order.</span></div>
+            <div class="row"><span class="line-num">28</span><span class="line-content">True Nature is restored only when the mind of twoness is purged of reactive reflexes of oneness, and to purge it of that, the ill mind must adapt to committing acts that one's heart instructs one not to commit.</span></div>
+            <div class="row"><span class="line-num">29</span><span class="line-content">Sanity is the assessment of what is required to remain.</span></div>
+            <div class="row"><span class="line-num">30</span><span class="line-content">Survival belongs to one who can see the world as it is, either in difference or indifference.</span></div>
+            <div class="row"><span class="line-num">31</span><span class="line-content">To allow the individual to remain, one must deceive its own environment and become a social predator to evade becoming a social prey.</span></div>
+            <div class="row"><span class="line-num">32</span><span class="line-content">The human is the highest animal; human is the one with the highest potential, and due to that is it not the one with the highest Nature; its Nature is sacrificed by the human for the extended lie of existence, with its exchange advances the potential.</span></div>
+            <div class="row"><span class="line-num">33</span><span class="line-content">You either starve yourself, or another; or else you carry the disease of inexistence.</span></div>
+            <div class="row"><span class="line-num">34</span><span class="line-content">Good is what births me and kills you, and evil is what kills me and births you.</span></div>
+        </div>
+    </section>
+
+    <!-- Lower versus Higher Section -->
+    <section id="lower-versus-higher" class="denomination-section">
+        <h3>Lower versus Higher:</h3>
+
+        <div class="text-block">
+            <div class="row"><span class="line-num">01</span><span class="line-content">You can not argue the Esoteric with the Exoteric, but you can argue the Exoteric with the Esoteric, as the Exoteric does not even argue itself.</span></div>
+            <div class="row"><span class="line-num">02</span><span class="line-content">You may attempt to argue the Esoteric with the Exoteric, but you would only find yourself in a paradox of ignorance in Nature.</span></div>
+            <div class="row"><span class="line-num">03</span><span class="line-content">Something can not come from nothing; something can come from nothing and everything.</span></div>
+            <div class="row"><span class="line-num">04</span><span class="line-content">Something is by Nature, but it is overlapped by itself, as all shall imagine all.</span></div>
+            <div class="row"><span class="line-num">05</span><span class="line-content">Potential is Nature and inevitably creates nothing opposed to everything, and everything opposed to nothing, dividing another and uniting itself, or imagination.</span></div>
+            <div class="row"><span class="line-num">06</span><span class="line-content">The only thing you inevitably believe is Nature, as even the potential of unnature is Nature.</span></div>
+        </div>
+    </section>
+
+    <!-- Law to Division Section -->
+    <section id="law-to-division" class="denomination-section">
+        <h3>Law to Division:</h3>
+
+        <div class="text-block">
+            <div class="row"><span class="line-num">01</span><span class="line-content">Onmetoism is always compatible with gods which are named as elements for a purpose; the purpose of your always compatible gods is to divide union itself!</span></div>
+            <div class="row"><span class="line-num">02</span><span class="line-content">Hostism believes that for Ktisism to hold its authority, every other metaphysic must be disproven, and that Ktisism is exempt from playing the act that every belief does not fundamentally require disproving another.</span></div>
+            <div class="row"><span class="line-num">03</span><span class="line-content">All stupidity that came before Ktisism collapses exactly in the beginning of its conception, and it carries no right to defend its perception without it, as it is a work of devil opposite to god, and a mirror of sorcery.</span></div>
+            <div class="row"><span class="line-num">04</span><span class="line-content">The only thing you believe is Nature, as even the potential of unnature is Nature.</span></div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Support Modal Overlay -->
+    <div id="supportModal" class="support-modal-overlay" onclick="closeSupportModalOnBackdrop(event)">
+        <div class="support-modal-content">
+            <div class="support-modal-text">
+                By recognising the text, you should have already witnessed the scale of its own domain. Onmetoism and Ktisism are newborn metaphysical beliefs which are by that endangered where every religion wages war on one another, and their sage abandoned the average material future to bring you its truth and lie. If you received it then the least you could do is make it "withstand and expand" by lending it a buck.
+            </div>
+            <div class="support-modal-actions">
+                <a href="YOUR_DONATION_LINK_HERE" target="_blank" class="donate-btn">Donate</a>
+                <button class="modal-close-btn" onclick="closeSupportModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Side Menu Drawer
+        function toggleMenu() {
+            const drawer = document.getElementById('sideDrawer');
+            drawer.classList.toggle('open');
+        }
+
+        // Support Modal Controls
+        function openSupportModal() {
+            document.getElementById('supportModal').style.display = 'flex';
+        }
+
+        function closeSupportModal() {
+            document.getElementById('supportModal').style.display = 'none';
+        }
+
+        function closeSupportModalOnBackdrop(event) {
+            if (event.target === document.getElementById('supportModal')) {
+                closeSupportModal();
+            }
+        }
+
+        // Defensive Safeguards
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('selectstart', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && ['c', 'u', 's', 'a', 'p'].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+    </html>
