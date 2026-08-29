@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ktisism - Iemehkism</title>
 
+  <meta name="google" content="notranslate" />
+  <meta name="robots" content="noarchive, noindex, nofollow, nocache" />
+  <meta name="googlebot" content="noarchive, noindex, nofollow" />
+  <meta name="bingbot" content="noarchive, noindex, nofollow" />
+
+  <style>
+    :root {
+      --page-bg: #ffffff;
+      --page-text: #0a0a0a;
+      --accent: #000000;
+      --line: #e6e6e6;
+      --header-bg: #000000;
+      --header-text: #ffffff;
+      --drawer-bg: #ffffff;
+      --drawer-border: #ececec;
+      --modal-backdrop: rgba(0,0,0,0.08);
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--page-text);
+      font-family: 'Courier New', Courier, monospace;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      border-bottom: 1px solid #111;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--header-text);
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .support-btn {
+      background: transparent;
+      color: var(--header-text);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 6px 12px;
+      border-radius: 40px;
+      font-family: monospace;
+      font-size: 0.82rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 6px;
+    }
+
+    .menu-btn span {
+      width: 20px;
+      height: 2px;
+      background: var(--header-text);
+      display: block;
+    }
+
+    /* Side drawer */
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100%;
+      background: var(--drawer-bg);
+      border-left: 1px solid var(--drawer-border);
+      box-shadow: -8px 0 24px rgba(0,0,0,0.05);
+      transition: right 0.28s ease;
+      padding: 84px 18px 20px 18px;
+      z-index: 99;
+      overflow-y: auto;
+      box-sizing: border-box;
+    }
+
+    .side-drawer.open { right: 0; }
+
+    .side-drawer h3 {
+      color: #666;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      margin: 0 0 16px 0;
+    }
+
+    .side-drawer ul { list-style: none; padding: 0; margin: 0; }
+    .side-drawer li { margin-bottom: 12px; }
+    .side-drawer a {
+      color: var(--page-text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: block;
+    }
+    .side-drawer a:hover { color: var(--accent); }
+
+    /* Main (light like the page) */
+    main {
+      max-width: 900px;
+      margin: 36px auto;
+      padding: 28px 22px 80px 22px;
+      background: var(--page-bg);
+      color: var(--page-text);
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin: 0 0 18px 0;
+      color: var(--accent);
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    .intro-section {
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+      font-size: 1rem;
+    }
+
+    .intro-section p { margin: 0; color: var(--page-text); }
+
+    /* Support modal */
+    .support-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--modal-backdrop);
+      z-index: 1200;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    .support-modal-content {
+      width: 100%;
+      max-width: 520px;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      padding: 26px;
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-sizing: border-box;
+      font-family: monospace;
+    }
+
+    .support-modal-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:14px; }
+    .donate-btn { background:#fff; color:#000; padding:8px 16px; text-decoration:none; font-weight:700; border-radius:3px; }
+    .modal-close-btn { background:transparent; color:#ddd; border:1px solid #333; padding:7px 12px; cursor:pointer; }
+
+    /* small screens */
+    @media (max-width:640px) {
+      main { margin: 18px; padding: 18px; }
+      .side-drawer { width: 240px; right: -260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="logo">KTISISM</a>
+    <div class="nav-right">
+      <button class="support-btn" onclick="openSupportModal()">SUPPORT THIS</button>
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Denominations Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Side menu -->
+  <div class="side-drawer" id="sideDrawer">
+    <h3>PARTS</h3>
+    <ul>
+      <li><a href="index.html">1. Onmetoism</a></li>
+      <li><a href="apodictism.html" onclick="toggleMenu()">2. Apodictism</a></li>
+      <li><a href="hostism.html" onclick="toggleMenu()">3. Hostism</a></li>
+      <li><a href="pavelhricism.html" onclick="toggleMenu()">4. Pavelhricism</a></li>
+      <li><a href="quotationsystem.html" onclick="toggleMenu()">5. Quotation System</a></li>
+      <li><a href="depictions.html">6. Depictions</a></li>
+      <li><a href="tou.html">7. Terms of Use</a></li>
+      <li><a href="iemehkism.html" onclick="toggleMenu()">0. Iemehkism</a></li>
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <main>
+    <h1 id="iemehkism">0. IEMEHKISM</h1>
+
+    <div class="intro-section">
+      <p>Iemehkism!</p>
+      <p>"May zero!"</p>
+      <p>*8910* Iemehkism!</p>
+      <p>And the only opponent to Ktisism and Onmetoism advances! And the Khemeism of the worshipped Unnature!</p>
+      <p>Aiēmehk, the being of equality with inexistence and the true deceit!</p>
+      <p>Khemēia, harm another as much as you harm one!</p>
+      <p>Unnature requires none of the symbols, Unnature does not even exist, and it is even; for it is your inexistence!</p>
+    </div>
+  </main>
+
+  <!-- Support modal -->
+  <div id="supportModal" class="support-modal-overlay" onclick="closeSupportModalOnBackdrop(event)">
+    <div class="support-modal-content" role="dialog" aria-modal="true">
+      <div class="support-modal-text">
+        By recognising the text, you should have already witnessed the scale of its own domain. Onmetoism and Ktisism are newborn metaphysical beliefs which are by that endangered where every religion wages war on one another, and their sage abandoned the average material future to bring you its truth and lie. If you received it then the least you could do is make it "withstand and expand" by lending it a buck.
+      </div>
+      <div class="support-modal-actions">
+        <a href="YOUR_DONATION_LINK_HERE" target="_blank" class="donate-btn">Donate</a>
+        <button class="modal-close-btn" onclick="closeSupportModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const d = document.getElementById('sideDrawer');
+      d.classList.toggle('open');
+    }
+
+    function openSupportModal() {
+      document.getElementById('supportModal').style.display = 'flex';
+    }
+    function closeSupportModal() {
+      document.getElementById('supportModal').style.display = 'none';
+    }
+    function closeSupportModalOnBackdrop(e) {
+      if (e.target === document.getElementById('supportModal')) closeSupportModal();
+    }
+
+    // Defensive safeguards
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && ['c','u','s','a','p'].includes(e.key.toLowerCase())) e.preventDefault();
+    });
+  </script>
+</body>
+  </html>
